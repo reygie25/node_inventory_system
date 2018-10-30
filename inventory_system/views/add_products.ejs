@@ -1,0 +1,53 @@
+<br><br>
+<div class="rows">
+    <div class="col-xs-2">
+    </div>
+      <div class="col-xs-8 vcenter">
+        <form action="/add" method="post">
+        <input type="hidden" name="id" id="id">
+          <input type="text" id="name" placeholder="Product Name" name="product_name" class="form-control"><br>
+            <input type="number" id="quantity" placeholder="Quantity Name" name="quantity" class="form-control"><br>
+              <input type="number" id="price" placeholder="Price" name="price" class="form-control"><br>
+              <button id="submitBtn" class="btn btn-sm btn-primary" type="submit">Submit</button>
+              <button id="updateBtn" class="btn btn-sm btn-warning" type="submit">Update</button>
+              <button id="cancelBtn" class="btn btn-sm btn-primary" type="button" onclick="cancel()">Cancel</button>
+          </form>
+      </div>
+        <div class="col-xs-2">
+        </div>
+
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if(data){ %>
+              <% for(var i = 0; i < data.length; i++){
+                  var id = data[i].pID;
+                  var name = data[i].prodName;
+                  var quantity = data[i].quantity;
+                  var price = data[i].price;
+               %>
+                <tr>
+                  <td><%= id %></td>
+                  <td><%= name %></td>
+                  <td><%= quantity %></td>
+                  <td><%= price %></td>
+                  <td>
+                    <a onclick="edit(<%= id %>, <%= quantity %>,  '<%= name %>', <%= price %>)" href="#">Edit</a> 
+                    <a href="DeleteProduct/<%= data[i].pID %>">Delete</a>
+                  </td>
+                </tr>
+              <% }
+            } %>
+
+          </tbody>
+        </table>
+
+</div>

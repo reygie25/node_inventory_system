@@ -1,0 +1,37 @@
+<br><br>
+<div class="rows">
+	<h1>Sales</h1>
+
+	<table class="table table-bordered">
+          <thead>
+            <tr>
+                <th>ID</th>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Date Purchase</th>
+                <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if(data){ %>
+              <% for(var i = 0; i < data.length; i++){
+                  var id = data[i].id;
+                  var name = data[i].p_name;
+                  var quantity = data[i].quantity;
+                  var dp = data[i].dp;
+               %>
+                <tr>
+                  <td><%= id %></td>
+                  <td><%= name %></td>
+                  <td><%= quantity %></td>
+                  <td><%= dp %></td>
+                  <td>
+
+                  </td>
+                </tr>
+              <% }
+            } %>
+
+          </tbody>
+        </table>
+</div>
